@@ -1,15 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact</title>
-</head>
-
-<body>
-    @include('partials.navigation') <!-- Se accede a las carpetas utilizando (.) puntos -->
+<x-layout meta-title="Contacto">
     <h1>Contacto</h1>
-</body>
-
-</html>
+    <x-slot name="sidebar">
+        Contacto Sidebar
+    </x-slot>
+</x-layout>

@@ -9,10 +9,10 @@
 </head>
 
 <body>
-    <x-partials.navigation />
+    <x-navigation />
     <!-- Se llama al componente de Blade que se encuentra en la carpeta partials -->
     {{ $slot }} <!-- Lo que hace es que se va a renderizar el contenido que se le pase a este componente -->
-    @isset($sidebar)   <!-- Si la variable $sidebar esta definida, entonces se va a renderizar el contenido de la variable $sidebar -->
+    @isset($sidebar)    <!-- Si la variable $sidebar esta definida, entonces se va a renderizar el contenido de la variable $sidebar -->
         <div id="SideBar">
             <h3>SideBar</h3>
             <div>{{ $sidebar }}</div>
