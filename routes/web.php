@@ -3,18 +3,20 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Rutas de la aplicación
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// Ruta para la página principal (home). Muestra la vista 'welcome' y se le asigna el nombre 'home' para poder referenciarla en las vistas.
+Route::view('/', 'welcome')->name('home');
 
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
+// Ruta para la página de contacto. Muestra la vista 'contact' y se le asigna el nombre 'contact'.
+Route::view('contacto', 'contact')->name('contact');
 
-require __DIR__.'/auth.php';
+// Ruta para la página del blog. Muestra la vista 'blog' y se le asigna el nombre 'blog'.
+Route::view('blog', 'blog')->name('blog');
+
+// Ruta para la página sobre nosotros. Muestra la vista 'about' y se le asigna el nombre 'about'.
+Route::view('nosotros', 'about')->name('about');
+
+
+
+require __DIR__ . '/auth.php';
