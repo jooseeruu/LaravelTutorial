@@ -16,7 +16,9 @@ Route::view('contacto', 'contact')->name('contact');
 
 
 // Ruta que responde a peticiones GET en la URL 'blog' usamos metodo get porque así contenemos toda la logica en un solo bloque de código
-Route::get('blog', [PostController::class, 'index'])->name('blog');
+Route::get('blog', [PostController::class, 'index'])->name('posts.index');
+Route::get('/blog/{post}', [PostController::class, 'show'])->name('posts.show');
+
 // Utilizamos Controladores para manejar la lógica de la aplicación
 // Usamos el método 'index' del controlador PostController para manejar la lógica de la página 'blog'.
 
