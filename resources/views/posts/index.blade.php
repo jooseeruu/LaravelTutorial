@@ -1,5 +1,6 @@
 <x-layout meta-title="Blog">
     <h1>Blog</h1>
+    <a href="{{ route('posts.create') }}">Create new post</a>
     <x-slot name="sidebar">
         Blog Sidebar
     </x-slot>
