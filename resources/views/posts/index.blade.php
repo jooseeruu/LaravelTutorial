@@ -1,15 +1,14 @@
-<x-layout meta-title="Blog">
+<x-layout meta-title="Blog title">
     <h1>Blog</h1>
     <a href="{{ route('posts.create') }}">Create new post</a>
-    <x-slot name="sidebar">
-        Blog Sidebar
-    </x-slot>
-    {{-- @dump($posts) -- dump es una herramienta de depuracion permite mostrar el contenido de lo que le pases ----}}
     @foreach ($posts as $post)
-        <h4>
-            <a href="{{ route('posts.show', $post) }}">
-                {{ $post->title }}
-            </a>
-        </h4>
+        <div style="display: flex; align-items: baseline">
+            <h2>
+                <a href="{{ route('posts.show', $post) }}">
+                    {{ $post->title }}
+                </a>
+            </h2> &nbsp;
+            <a href="{{ route('posts.edit', $post) }}">Edit</a>
+        </div>
     @endforeach
 </x-layout>

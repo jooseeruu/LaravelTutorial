@@ -1,4 +1,4 @@
-<x-layout :meta-title="$post->title" :meta-description="$post->body">
+<x-layout :meta-title="$post->title">
     <h1>Edit form</h1>
 
     <form action="{{ route('posts.update', $post) }}" method="POST">
