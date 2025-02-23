@@ -1,10 +1,11 @@
-<x-layout meta-title="Create new post" meta-description="Form to create a new post">
-    <h1>{{ __('Create new post') }}</h1>
-    <form action="{{ route('posts.store') }}" method="POST">
-        @csrf
+<x-layout :meta-title="$post->title" :meta-description="$post->body">
+    <h1>Edit form</h1>
+
+    <form action="{{ route('posts.update', $post) }}" method="POST">
+        @csrf @method('PATCH')
         <label>
             {{ __('Title') }} <br />
-            <input name="title" type="text" value="{{ old('title') }}" />
+            <input name="title" type="text" value="{{ old('title', $post->title) }}" />
             @error('title')
                 <br />
                 <small style="color: red">{{ $message }}</small>
@@ -12,7 +13,7 @@
         </label> <br />
         <label>
             {{ __('Body') }} <br />
-            <textarea name="body">{{old('body')}}</textarea>
+            <textarea name="body">{{old('body', $post->body)}}</textarea>
             @error('body')
                 <br />
                 <small style="color: red">{{ $message }}</small>
@@ -22,5 +23,6 @@
         <br />
     </form>
     <br />
-    <a href="{{ route('posts.index') }}">{{ __('Back') }}</a>
+
+    <a href="{{ route('posts.index') }}">Back</a>
 </x-layout>
